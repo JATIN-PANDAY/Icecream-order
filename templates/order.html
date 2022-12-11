@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<style>
+
+  .container {
+    margin-top: 10%;
+
+  }
+
+</style>
+
+{%endblock head%}
+
+{% block body %}
+
+<form action="order" method="post">
+  {% csrf_token %}
+
+  {% if messages %}
+
+  {% for message in messages %}
+  
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show  my-5 pt-2" role="alert">
+   <strong> {{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  
+  {% endif %}
+       
+    <div class="container">
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Name</span>
+
+        <input type="text" class="form-control" placeholder="Enter your name" aria-label="Username"
+          aria-describedby="basic-addon1" name='name' required>
+      </div>
+      <span class="input-group-text">Contact number</span>
+
+      <input type="number" class="form-control" placeholder="Enter your phone no." aria-label="Username"
+        aria-describedby="basic-addon1" name='phone.no' required>
+      <div class="input-group mt-3">
+        <span class="input-group-text">Address</span>
+
+        <input type="text" class="form-control" placeholder="Enter your address" aria-label="Username"
+          aria-describedby="basic-addon1" name='address' required>
+      </div>
+      <div class="input-group mt-3">
+        <span class="input-group-text">Select</span>
+
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="select" required>
+          <option selected></option>
+          <option value="Butterscotch Minipack Icecream">Butterscotch Minipack Icecream.</option>
+          <option value="Black Currant Icecream">Black Currant Icecream</option>
+          <option value="Danish Chocalate  Icecream">Danish Chocalate Icecream</option>
+          <option value="Kaju kaju-draksh Icecream">Kaju kaju-draksh Icecream</option>
+          <option value="Plan-pista Icecream">Plan-pista Icecream</option>
+          <option value="Stawerry Icecream">Stawerry Icecream</option>
+          <option value="Real Mango Icecream">Real Mango Icecream</option>
+          <option value="Plan -Pista Icecream">Plan -Pista Icecream</option>
+
+        </select>
+
+        <div class="input-group mt-4">
+          <button type="send" class="btn btn-secondary mt-3">Submit</button>
+        </div>
+      </div>
+      
+      {% endblock body %}
+
+</form>
+</body>
+
+</html>

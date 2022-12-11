@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<style>
+  .container {
+    margin-top: 10%;
+
+  }
+</style>
+{%endblock head%}
+{% block body %}
+
+<form action="{% url 'update' pk=key2.id%}" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <h2>Update data</h2>
+
+    <div class="input-group my-4">
+      <span class="input-group-text">Name</span>
+
+      <input type="text" class="form-control" placeholder="Enter your name" aria-label="Username"
+        aria-describedby="basic-addon1" name='name' required value="{{key2.Name}}">
+    </div>
+    <span class="input-group-text">Contact number</span>
+
+    <input type="number" class="form-control" placeholder="Enter your phone no." aria-label="Username"
+      aria-describedby="basic-addon1" name='phone.no' value="{{key2.Mobileno}}">
+    <div class="input-group mt-3">
+      <span class="input-group-text">Address</span>
+
+      <input type="text" class="form-control" placeholder="Enter your address" aria-label="Username"
+        aria-describedby="basic-addon1" name='address' value="{{key2.Address}}">
+    </div>
+    <button type="submit" class="btn btn-secondary my-4">Update</button>
+
+    {% endblock body %}
+
+</form>
+</body>
+
+</html>
